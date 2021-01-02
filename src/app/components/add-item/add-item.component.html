@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="myform" (ngSubmit)="onAddSubmit()">
+      <div>
+        <label for=""> title</label>
+        <input type="text" formControlName="title" name="title" required />
+        <div
+          class="text-danger"
+          *ngIf="isSubmitted && formControls.title.errors?.required"
+        >
+          This field is required.
+        </div>
+      </div>
+      <div>
+        <label for=""> price</label>
+        <input type="number" formControlName="price" name="price" required />
+        <div
+          class="text-danger"
+          *ngIf="isSubmitted && formControls.price.errors?.required"
+        >
+          This field is required.
+        </div>
+      </div>
+      <div>
+        <label for=""> description</label>
+        <input
+          type="text"
+          formControlName="description"
+          name="description"
+          required
+        />
+        <div
+          class="text-danger"
+          *ngIf="isSubmitted && formControls.description.errors?.required"
+        >
+          This field is required.
+        </div>
+      </div>
+
+      <div>
+        <label for=""> image</label>
+        <input
+          type="file"
+          formControlName="image"
+          name="image"
+          (change)="getUrl($event)"
+          required
+        />
+        <div
+          class="text-danger"
+          *ngIf="isSubmitted && formControls.image.errors?.required"
+        >
+          This field is required.
+        </div>
+      </div>
+      <div *ngIf="fb" class="list">
+        <img src="{{ fb }}" alt="" width="auto" height="350px" />
+      </div>
+
+      <button type="submit">submit</button>
+    </form>
+  </div>
+</div>

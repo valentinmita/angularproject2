@@ -1,0 +1,11 @@
+<div class="cart-item" *ngFor="let item of items; let e = index">
+  <span>
+    <strong> {{ item.title }} </strong>
+  </span>
+  <span>{{ item.price }}</span>
+  <button (click)="deleteItem(e)">delete</button>
+</div>
+
+<div>
+  <h1>Total:{{ total }}$</h1>
+</div>

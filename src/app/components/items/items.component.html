@@ -1,0 +1,23 @@
+<input
+  type="text"
+  #myInput
+  [(ngModel)]="nome"
+  (input)="Search()"
+  placeholder="search by name"
+/>
+
+<ul *ngFor="let item of items" class="card m-2 p-2">
+  <a (click)="sendObjects(item)">
+    <h1 class="card-title">{{ item.title }}</h1>
+  </a>
+  <h5>Description: {{ item.description }}</h5>
+  <h5>Price: {{ item.price }}$</h5>
+  <h5>
+    <img [src]="item.image" alt="" width="auto" height="300px;" />
+  </h5>
+
+  <div class="">
+    <button class="btn btn-primary" (click)="addToCart(item)">buy</button>
+    <button class="btn btn-primary" (click)="deleteItem(item)">delete</button>
+  </div>
+</ul>
